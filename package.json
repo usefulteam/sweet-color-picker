@@ -1,0 +1,48 @@
+{
+  "name": "sweet-color-picker",
+  "version": "0.1.0",
+  "description": "Development toolkit for sweet-color-picker package",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usefulteam/sweet-color-picker.git"
+  },
+  "keywords": [
+    "react-color-picker",
+    "sweet-color-picker"
+  ],
+  "author": "Useful Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/usefulteam/sweet-color-picker/issues"
+  },
+  "homepage": "https://github.com/usefulteam/sweet-color-picker#readme",
+  "peerDependencies": {
+    "colord": ">=2.9",
+    "react": ">=17.0",
+    "react-colorful": ">=5.5",
+    "react-dom": ">=17.0",
+    "styled-components": ">=5.3"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.3.2",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "@types/styled-components": "^5.1.22",
+    "babel-plugin-styled-components": "^2.0.5",
+    "microbundle": "^0.14.2",
+    "parcel": "^2.3.2",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5"
+  },
+  "source": "./index.html",
+  "browserslist": "> 1%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel --dist-dir ./demo",
+    "watch": "parcel watch --dist-dir ./demo",
+    "build-demo": "parcel build --dist-dir ./demo",
+    "build": "parcel build --dist-dir ./dist"
+  },
+  "dependencies": {
+    "@swc/helpers": "^0.3.3"
+  }
+}
