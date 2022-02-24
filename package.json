@@ -39,6 +39,7 @@
   "scripts": {
     "start": "parcel --dist-dir ./demo",
     "watch": "parcel watch --dist-dir ./demo",
+    "build-docs": "parcel build --dist-dir ./docs",
     "build-demo": "parcel build --dist-dir ./demo",
     "build": "parcel build --dist-dir ./dist"
   },
