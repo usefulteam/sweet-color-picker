@@ -1,3 +1,4 @@
+import React from "react";
 import { ColorSwatchesProps } from "../types";
 
 export const ColorSwatches = (props: ColorSwatchesProps) => {

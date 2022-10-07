@@ -73,6 +73,7 @@ export interface StyledWrapperProps extends StyledWrapperHTMLAttributes {
 
   inputWidth?: string;
   inputHeight?: string;
+  inputTextColor?: string;
   inputBorderRadius?: string;
   inputBorderWidth?: string;
   inputBorderStyle?: string;

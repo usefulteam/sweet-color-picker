@@ -1,3 +1,4 @@
+import React from "react";
 import { ColorButtonProps } from "../../types";
 import { ColorPreview } from "../ColorPreview";
 import { ResetButton } from "./ResetButton";

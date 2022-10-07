@@ -1,4 +1,5 @@
 import { AnyColor } from "colord";
+import React from "react";
 import ReactDOM from "react-dom";
 import { SweetColorPicker } from "./src/components/SweetColorPicker";
 
@@ -36,6 +37,15 @@ const ColorPicker3 = (
   />
 );
 
-ReactDOM.render(ColorPicker1, document.querySelector(".control-1 .control-component"));
-ReactDOM.render(ColorPicker2, document.querySelector(".control-2 .control-component"));
-ReactDOM.render(ColorPicker3, document.querySelector(".control-3 .control-component"));
+ReactDOM.render(
+  ColorPicker1,
+  document.querySelector(".control-1 .control-component")
+);
+ReactDOM.render(
+  ColorPicker2,
+  document.querySelector(".control-2 .control-component")
+);
+ReactDOM.render(
+  ColorPicker3,
+  document.querySelector(".control-3 .control-component")
+);

@@ -1,6 +1,6 @@
 import { AnyColor, ColorPickerProps, RgbColor, RgbaColor } from "../types";
 
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { colord } from "colord";
 
 import { RgbColorPicker } from "react-colorful";
@@ -42,7 +42,7 @@ export const SweetColorPicker = (
     onChange = () => {},
   } = props;
 
-  const initialInputValue = generateColorInputValue(props.color, colorMode);
+  const initialInputValue = generateColorInputValue(color, colorMode);
 
   const alphaEnabledModes = ["hex", "rgba", "hsla", "hsva"];
   let alphaEnabled = alphaEnabledModes.includes(colorMode);
@@ -66,7 +66,7 @@ export const SweetColorPicker = (
     setInputValue(generateColorInputValue(clr, colorMode, adaptiveAlpha));
 
     const method = adaptiveAlpha
-      ? generateColordMethod('rgba', colorFormat)
+      ? generateColordMethod("rgba", colorFormat)
       : generateColordMethod(colorMode, colorFormat);
     let newColor: AnyColor;
 
@@ -94,8 +94,8 @@ export const SweetColorPicker = (
     setInputValue(color);
   };
 
-  const wrapperRef = useRef(null); // Reference to the StyledWrapper.
-  const pickerRef = useRef(null); // Reference to the picker container / popup.
+  const wrapperRef = useRef<HTMLDivElement>(null); // Reference to the StyledWrapper.
+  const pickerRef = useRef<HTMLDivElement>(null); // Reference to the picker container / popup.
 
   const [widthManipulatedClass, setWidthManipulatedClass] = useState("");
   const [isPickerOpen, setIsPickerOpen] = useState(false);
@@ -109,16 +109,23 @@ export const SweetColorPicker = (
   };
 
   const openPicker = () => {
+    if (!wrapperRef || !wrapperRef.current) return;
+    if (!pickerRef || !pickerRef.current) return;
+
     if (!isPickerOpen) {
       if (wrapperRef.current.clientWidth < 250) {
+        const wrapperParent = wrapperRef.current.parentNode as HTMLElement;
+        if (!wrapperParent) return;
+
         pickerRef.current.style.width =
-          wrapperRef.current.parentNode.firstElementChild.clientWidth + "px";
+          wrapperParent.firstElementChild!.clientWidth + "px";
+
         if ("picker-width-manipulated" !== widthManipulatedClass)
           setWidthManipulatedClass(" picker-width-manipulated");
 
         if (triggerIsRightSided) {
           let padding = window
-            .getComputedStyle(wrapperRef.current.parentNode)
+            .getComputedStyle(wrapperParent)
             .getPropertyValue("padding-left");
           const number = parseInt(padding, 10);
           const unit = padding.replace(number.toString(), "");

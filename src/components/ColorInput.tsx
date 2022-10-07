@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ColorInputProps } from "../types";
 import { ResetButton } from "./buttons/ResetButton";
 import { ColorPreview } from "./ColorPreview";

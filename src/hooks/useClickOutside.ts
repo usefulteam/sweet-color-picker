@@ -5,24 +5,28 @@ import { useEffect } from "react";
  * - https://codesandbox.io/s/opmco?file=/src/useClickOutside.js:0-1192
  * - https://usehooks.com/useOnClickOutside/
  */
-const useClickOutside = (ref: React.RefObject<HTMLDivElement>, handler: () => void) => {
+const useClickOutside = (
+  ref: React.RefObject<HTMLDivElement>,
+  handler: () => void
+) => {
   useEffect(() => {
     let startedWhenMounted: boolean = false;
     let startedInside: boolean = false;
 
-    const listener = (event: Event) => {
+    const listener = (e: Event) => {
       // Do nothing if `mousedown` or `touchstart` started either inside inputRef or ref element
       if (!startedWhenMounted || startedInside) return;
 
       // Do nothing if clicking ref's element or descendent elements
-      if (!ref.current || ref.current.contains(event.target as Node)) return;
+      if (!ref.current || ref.current.contains(e.target as Node)) return;
 
       handler();
     };
 
-    const validateEventStart = (event: Event) => {
+    const validateEventStart = (e: Event) => {
       startedWhenMounted = ref.current ? true : false;
-      startedInside = ref.current && ref.current.contains(event.target as Node);
+      startedInside =
+        ref.current && ref.current.contains(e.target as Node) ? true : false;
     };
 
     document.addEventListener("mousedown", validateEventStart);

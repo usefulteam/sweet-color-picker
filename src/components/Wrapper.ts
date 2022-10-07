@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { StyledWrapperProps } from "../types";
 
 const defaultSize: string = "32px";
+const defaultInputTextColor: string = "#333";
 
 // Thanks to @vineethtrv at Codepen for the refresh icon: https://codepen.io/vineethtrv/pen/tmAxy
 export const Wrapper = styled.div.attrs((props: StyledWrapperProps) => ({
@@ -25,8 +26,10 @@ export const Wrapper = styled.div.attrs((props: StyledWrapperProps) => ({
       justify-content: center;
       right: 0;
       top: 0;
-      width: ${(props: StyledWrapperProps) => props.triggerHeight || defaultSize};
-      height: ${(props: StyledWrapperProps) => props.triggerHeight || defaultSize};
+      width: ${(props: StyledWrapperProps) =>
+        props.triggerHeight || defaultSize};
+      height: ${(props: StyledWrapperProps) =>
+        props.triggerHeight || defaultSize};
       border: 0;
     }
   }
@@ -40,38 +43,32 @@ export const Wrapper = styled.div.attrs((props: StyledWrapperProps) => ({
     .swcp__color-preview {
       left: 7px;
       top: 7px;
-      width: ${
-        (props: StyledWrapperProps) => {
-          // 7px here is a 1 side padding of the color preview when inside the color input.
-          if ('input' === props.triggerType) {
-            const triggerHeight = props.triggerHeight || defaultSize;
-            return (parseInt(triggerHeight, 10) - (7 * 2)) + 'px';
-          } else {
-            const triggerHeight = props.inputHeight || defaultSize;
-            return (parseInt(triggerHeight, 10) - (7 * 2)) + 'px';
-          }
+      width: ${(props: StyledWrapperProps) => {
+        // 7px here is a 1 side padding of the color preview when inside the color input.
+        if ("input" === props.triggerType) {
+          const triggerHeight = props.triggerHeight || defaultSize;
+          return parseInt(triggerHeight, 10) - 7 * 2 + "px";
+        } else {
+          const triggerHeight = props.inputHeight || defaultSize;
+          return parseInt(triggerHeight, 10) - 7 * 2 + "px";
         }
-      };
-      height: ${
-        (props: StyledWrapperProps) => {
-          if ('input' === props.triggerType) {
-            const triggerHeight = props.triggerHeight || defaultSize;
-            return (parseInt(triggerHeight, 10) - (7 * 2)) + 'px';
-          } else {
-            const triggerHeight = props.inputHeight || defaultSize;
-            return (parseInt(triggerHeight, 10) - (7 * 2)) + 'px';
-          }
+      }};
+      height: ${(props: StyledWrapperProps) => {
+        if ("input" === props.triggerType) {
+          const triggerHeight = props.triggerHeight || defaultSize;
+          return parseInt(triggerHeight, 10) - 7 * 2 + "px";
+        } else {
+          const triggerHeight = props.inputHeight || defaultSize;
+          return parseInt(triggerHeight, 10) - 7 * 2 + "px";
         }
-      };
-      border-radius: ${
-        (props: StyledWrapperProps) => {
-          if ('input' === props.triggerType) {
-            return '50%';
-          } else {
-            return props.inputBorderRadius || '50%';
-          }
+      }};
+      border-radius: ${(props: StyledWrapperProps) => {
+        if ("input" === props.triggerType) {
+          return "50%";
+        } else {
+          return props.inputBorderRadius || "50%";
         }
-      };
+      }};
       z-index: 2;
     }
   }
@@ -83,8 +80,10 @@ export const Wrapper = styled.div.attrs((props: StyledWrapperProps) => ({
     padding-right: 8px;
     width: 100%;
     height: ${(props: StyledWrapperProps) => props.inputHeight || defaultSize};
-    line-height: ${(props: StyledWrapperProps) => props.inputHeight || defaultSize};
-    color: #333;
+    line-height: ${(props: StyledWrapperProps) =>
+      props.inputHeight || defaultSize};
+    color: ${(props: StyledWrapperProps) =>
+      props.inputTextColor || defaultInputTextColor};
     border: 1px solid #8c8f94;
     border-radius: 4px;
     z-index: 1;
@@ -102,20 +101,29 @@ export const Wrapper = styled.div.attrs((props: StyledWrapperProps) => ({
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: ${(props: StyledWrapperProps) => props.triggerHeight || defaultSize};
-    padding-right: ${(props: StyledWrapperProps) => props.triggerHeight || defaultSize};
+    padding-left: ${(props: StyledWrapperProps) =>
+      props.triggerHeight || defaultSize};
+    padding-right: ${(props: StyledWrapperProps) =>
+      props.triggerHeight || defaultSize};
     width: ${(props: StyledWrapperProps) => props.triggerWidth || "100%"};
-    height: ${(props: StyledWrapperProps) => props.triggerHeight || defaultSize};
-    border-radius: ${(props: StyledWrapperProps) => props.triggerBorderRadius || "4px"};
-    border: ${(props: StyledWrapperProps) => props.triggerBorderWidth || "1px"} ${(props: StyledWrapperProps) => props.triggerBorderStyle || "solid"} ${(props: StyledWrapperProps) => props.triggerBackgroundColor || "#dedede"};
+    height: ${(props: StyledWrapperProps) =>
+      props.triggerHeight || defaultSize};
+    border-radius: ${(props: StyledWrapperProps) =>
+      props.triggerBorderRadius || "4px"};
+    border: ${(props: StyledWrapperProps) =>
+      props.triggerBorderWidth || "1px"} ${(props: StyledWrapperProps) =>
+  props.triggerBorderStyle || "solid"} ${(props: StyledWrapperProps) =>
+  props.triggerBackgroundColor || "#dedede"};
     cursor: pointer;
 
     .swcp__color-preview {
       left: 0;
       top: 0;
-      width: ${(props: StyledWrapperProps) => props.triggerHeight || defaultSize};
+      width: ${(props: StyledWrapperProps) =>
+        props.triggerHeight || defaultSize};
       height: 100%;
-      border-radius: ${(props: StyledWrapperProps) => props.triggerBorderRadius || "4px"};
+      border-radius: ${(props: StyledWrapperProps) =>
+        props.triggerBorderRadius || "4px"};
       border-top-right-radius: 0;
       border-bottom-right-radius: 0
     }
@@ -140,8 +148,8 @@ export const Wrapper = styled.div.attrs((props: StyledWrapperProps) => ({
 
   .swcp__reset-icon {
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     transform: rotate(0deg);
     transition: transform 0.3s;
   }
@@ -198,19 +206,17 @@ export const Wrapper = styled.div.attrs((props: StyledWrapperProps) => ({
     }
 
     .swcp__color-input {
-      padding-left: ${
-        (props: StyledWrapperProps) => {
-          // 7px here is a 1 side padding of the color preview when inside the color input.
-          // 2px here is input's padding-left + padding-right.
-          if ('input' === props.triggerType) {
-            const triggerHeight = props.triggerHeight || defaultSize;
-            return (7 + (parseInt(triggerHeight, 10) - 14) + (7 - 2)) + 'px';
-          } else {
-            const triggerHeight = props.inputHeight || defaultSize;
-            return (7 + (parseInt(triggerHeight, 10) - 14) + (7 - 2)) + 'px';
-          }
+      padding-left: ${(props: StyledWrapperProps) => {
+        // 7px here is a 1 side padding of the color preview when inside the color input.
+        // 2px here is input's padding-left + padding-right.
+        if ("input" === props.triggerType) {
+          const triggerHeight = props.triggerHeight || defaultSize;
+          return 7 + (parseInt(triggerHeight, 10) - 14) + (7 - 2) + "px";
+        } else {
+          const triggerHeight = props.inputHeight || defaultSize;
+          return 7 + (parseInt(triggerHeight, 10) - 14) + (7 - 2) + "px";
         }
-      };
+      }};
       border-color: #ccc;
     }
   }

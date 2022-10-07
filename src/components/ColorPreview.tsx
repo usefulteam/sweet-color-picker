@@ -1,3 +1,4 @@
+import React from "react";
 import { ColorPreviewProps } from "../types";
 
 export const ColorPreview = (props: ColorPreviewProps) => {
@@ -10,6 +11,10 @@ export const ColorPreview = (props: ColorPreviewProps) => {
   };
 
   return (
-    <span className="swcp__color-preview" onClick={handleClick} style={colorPreviewStyle}></span>
+    <span
+      className="swcp__color-preview"
+      onClick={handleClick}
+      style={colorPreviewStyle}
+    ></span>
   );
 };
